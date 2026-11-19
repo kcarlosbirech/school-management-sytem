@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Management System</title>
+<style>
+body{font-family:Arial;background:#f1f5f9;margin:0}
+header{background:#123c69;color:white;text-align:center;padding:20px}
+.container{background:white;margin:30px auto;padding:25px;width:80%;border-radius:10px}
+input{display:block;width:95%;padding:12px;margin:10px 0}
+button{background:#123c69;color:white;padding:12px;border:0;cursor:pointer}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{padding:12px;border:1px solid #ddd}
+</style>
+</head>
+<body>
+<header><h1>School Management System</h1></header>
+<div class="container">
+<h2>Register Student</h2>
+<input id="name" placeholder="Student Name">
+<input id="reg" placeholder="Registration Number">
+<input id="course" placeholder="Course">
+<button onclick="addStudent()">Register</button>
+<h2>Student Records</h2>
+<table>
+<thead><tr><th>Name</th><th>Reg No</th><th>Course</th></tr></thead>
+<tbody id="students"></tbody>
+</table>
+</div>
+<script>
+function addStudent(){
+let name=document.getElementById("name").value.trim();
+let reg=document.getElementById("reg").value.trim();
+let course=document.getElementById("course").value.trim();
+if(!name||!reg||!course){alert("Fill all fields");return;}
+let row=document.getElementById("students").insertRow();
+[name,reg,course].forEach(v=>row.insertCell().textContent=v);
+document.getElementById("name").value="";
+document.getElementById("reg").value="";
+document.getElementById("course").value="";
+}
+</script>
+</body>
+</html>
